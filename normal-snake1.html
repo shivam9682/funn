@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play SnakeXtreme</title>
+ 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=volume_off" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,400;1,500&display=swap" rel="stylesheet">
+   <link rel="icon" href="images/1-modified.png" type="image/png">
+   <link rel="stylesheet" href="snake-type1.css">
+
+</head>
+<body>
+
+  <div class="pre-loading-indicator">
+    <div class="pre-logo">
+      <div class="pre-loading-circle first-circle"></div>
+      <div class="pre-loading-circle second-circle"></div>
+      <img src="1-modified.png" id="pre-logo-img" alt="Loading logo" />
+    </div>
+  </div>
+  
+  
+
+
+  <div class="controls-panel">
+    <button id="background-music-button">
+        Background Music 
+        <span class="material-symbols-outlined" id="background-music-icon">volume_off</span>
+    </button>
+    <button id="game-sound-button">
+        Game Sound 
+        <span class="material-symbols-outlined" id="game-sound-icon">🔊</span>
+    </button>
+</div>
+  <div class="wrapper">
+     
+    <div class="game-details">
+        <span class="score">
+            Score : 0
+        </span>
+        <span class="high-score">
+                Level : 1
+        </span>
+    </div>
+    <div class="play-board"></div>
+
+    <div class="controls">
+         <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long arr"></i>
+         <i data-key="ArrowRight"  class="fa-solid fa-arrow-right-long arr"></i>
+         <i  data-key="ArrowUp"  class="fa-solid fa-arrow-up-long arr"></i>
+         <i data-key="ArrowDown"  class="fa-solid fa-arrow-down-long arr"></i>
+
+    </div>
+   
+  </div> 
+
+    <script src="snake-type1.js"></script>
+
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const preloader = document.getElementsByClassName('pre-loading-indicator')[0];
+          preloader.style.display = 'none';
+        }, 3000); // 2 seconds delay
+      });
+
+   
+    </script>
+</body>
+</html>

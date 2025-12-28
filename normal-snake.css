@@ -1,0 +1,293 @@
+/* Outer container */
+.pre-loading-indicator {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 3000;
+}
+
+/* Logo and circles container */
+.pre-logo {
+    position: relative;
+    height: 200px; /* Large enough to fit both circles */
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centered image */
+#pre-logo-img {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    z-index: 3; /* Ensures image stays above the circles */
+}
+
+/* First (inner) circle */
+/* .first-circle {
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    border: 8px solid transparent;
+    border-top: 8px solid rgb(202, 52, 202);
+    border-right: 8px solid rgb(27, 150, 174);
+    border-radius: 50%; 
+    animation: spin 1.5s linear infinite;
+    z-index: 2; 
+} */
+
+/* Second (outer) circle with gradient */
+.second-circle {
+    position: absolute;
+    height: 180px; /* Increased size for visibility */
+    width: 180px;
+    border: 8px solid transparent;
+    border-radius: 50%; /* Make it circular */
+    animation: spin-reverse 2s linear infinite;
+    z-index: 1; /* Below the first circle */
+    border-image: linear-gradient(45deg, rgb(202, 52, 202), rgb(27, 150, 174)) 1; /* Gradient border */
+}
+
+/* Spin animations */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-reverse {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #141E30, #243B55);
+    font-family: "Orbitron", sans-serif;
+    color: #ffffff;
+    flex-direction: column;
+}
+
+.wrapper {
+    width: 65vmin;
+    height: 70vmin;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #1a1a2e;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+.game-details {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(20, 30, 48, 0.9);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+.game-details span {
+    color: #00FFCA;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+.play-board {
+    flex-grow: 1;
+    display: grid;
+    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+    background: repeating-linear-gradient(
+        45deg,
+        #1b2735,
+        #1b2735 10px,
+        #0f2027 10px,
+        #0f2027 20px
+    );
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.play-board .food {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #FF3E3E, #D80000);
+    border-radius: 50%; /* Round shape */
+    box-shadow: 0px 10px 15px rgba(255, 80, 80, 0.7);
+}
+
+.play-board .food::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    height: 20%;
+    background: #7B3F00; /* Brown for the stem */
+    border-radius: 50%;
+}
+
+.play-board .food::after {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 30%;
+    width: 25%;
+    height: 25%;
+    background: linear-gradient(145deg, #34C759, #1EAF4D); /* Green leaf */
+    border-radius: 50% 50% 0 50%; /* Leaf shape */
+    transform: rotate(-45deg);
+}
+
+.play-board .head {
+    position: relative;
+    background: linear-gradient(145deg, #2865f2, #d1ee31); /* Green snake scales */
+    border-radius: 50% 50% 40% 40%; /* Tapered head shape */
+    box-shadow: 0px 8px 15px rgb(244, 21, 233), inset 0px -4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.play-board .head::before {
+    /* Left Eye */
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 12%;
+    height: 12%;
+    background: #faf8f8;
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px rgba(245, 82, 82); /* Pupil shadow */
+}
+
+.play-board .head::after {
+    /* Right Eye */
+    content: '';
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    width: 12%;
+    height: 12%;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6); /* Pupil shadow */
+}
+
+.play-board .head .mouth {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 10%;
+    background: #C62828; /* Reddish mouth */
+    border-radius: 50%;
+    box-shadow: inset 0px -2px 3px rgba(0, 0, 0, 0.3);
+}
+.play-board .body {
+    position: relative;
+    background: linear-gradient(90deg, #67fdf8, #e854ef, #74f0f9); /* Smooth gradient scales */
+    border-radius: 50%; /* Rounded body */
+    box-shadow: inset -5px -5px 10px rgba(64, 254, 181), 2px 8px 10px rgb(204, 125, 243);
+}
+/* Add "scale-like" pattern to the snake body */
+.play-board .body:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5; /* Subtle texture */
+}
+
+.play-board .big-food {
+    transform: scale(2); /* Bigger size */
+    background: radial-gradient(circle, #FFB800, #FF8C00); /* Bright gradient */
+    box-shadow: 0 10px 15px rgba(255, 136, 0, 0.7);
+}
+.controls-panel {
+
+
+    text-align: center;
+    /* margin-top: 10px; */
+}
+
+.controls-panel button {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #00FFCA;
+    display: flex;
+    border-radius: 30px;
+    align-items: center; 
+    box-shadow: -3px -3px 5px rgb(53, 53, 53);
+
+    justify-content: space-between;
+}
+
+.controls-panel button .material-symbols-outlined {
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+
+.controls {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        width: 94vmin;
+        height: 175vmin;
+    }
+    .game-details {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+    .controls {
+        display: flex;
+        height: 120px;
+        justify-content: space-between;
+        padding: 5px;
+    }
+    .controls .arr{
+     font-size: 65px;
+     line-height: 2;
+     margin-left: 20px;
+    }
+}

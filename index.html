@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/1-modified.png" type="image/png">
+    <title>SnakeXtreme</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Doto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,400;1,500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo1-Photoroom.png" alt="" class="logo-img">
+                <h2>SnakeXtreme</h2>
+            </div>
+            <div class="list-container">
+                <ul>
+                    <li class="link-lists"><a href="">Home</a></li>
+                    <li class="link-lists"><a href="">About</a></li>
+                    <li class="link-lists"><span  class="li-span" href="">Type</span>
+                        <ul>
+                            <li><a href="snake-type1.html">Type 1</a></li>
+                            <li><a href="normal-snake.html">Type 2</a></li>
+                            <li><a href="">Type 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-lists"><span class="li-span"  >Levels</span>
+                        <ul>
+                            <li><a href="snake-type1.html">Level 1</a></li>
+                            <li><a href="snake-type1.html">Level 2</a></li>
+                            <li><a href="snake-type1.html">Level 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="mid-section">
+        <video src="Untitled design (2).mp4" autoplay loop muted id="bg-video"></video>
+        <div id="cursor-glow"></div>
+        <div class="mid-container">
+            <h1 id="text-sn">SnakeXtreme Present</h1>
+    
+            <h1 id="text-heading">
+                Nostalgia Strikes:
+               </h1>
+               <h1 id="text-heading">Relive the Snake Adventure</h1>
+               <button class="play-button" onclick="playGame()">
+                <span>Play Now</span>
+              </button>
+              
+        </div>
+        <div>
+            
+        </div>
+    </section>
+    <script src="script.js"></script>
+
+    <script>
+
+         function playGame(){
+            window.open('normal-snake.html', "_blank")
+         }
+    </script>
+</body>
+</html>
+ 
